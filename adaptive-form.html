@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User-Adaptive Form</title>
+  <style>
+    /* Default light theme colours */
+    :root { --bg: #ffffff; --text: #1e293b; }
+
+    /* Switch to dark colours when OS is in dark mode */
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #0f172a; --text: #f8fafc; }
+    }
+
+    body { background: var(--bg); color: var(--text); font-family: sans-serif; padding: 20px; }
+    .adaptive-btn { transition: transform 0.3s; padding: 10px 16px; }
+
+    /* Disable animation for users who prefer reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .adaptive-btn { transition: none; }
+    }
+
+    /* Full-width inputs on mobile; 16px font prevents iOS zoom */
+    @media (max-width: 600px) {
+      input, select, textarea { width: 100%; font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <h2>Adaptive Registration Form</h2>
+  <form>
+    <label>Full Name:<br><input type="text" placeholder="Enter your name"></label><br><br>
+    <label>Email:<br><input type="email" placeholder="you@example.com"></label><br><br>
+    <label>Role:<br>
+      <select>
+        <option>Student</option>
+        <option>Developer</option>
+      </select>
+    </label><br><br>
+    <button type="submit" class="adaptive-btn">Submit</button>
+  </form>
+</body>
+</html>
